@@ -11,33 +11,35 @@ export default function HeaderSection(){
                     <div className="space-y-4">
                         <div>
                             <h1 className="text-[6rem] font-black text-gray-900 tracking-tight">MINDFORG</h1>
-                            <h2 className="text-4xl font-black text-gray-800 tracking-tight">Saison 1 : <span className="glitch">GLITCH</span> </h2>
+                            <h2 className="text-4xl font-black text-gray-800 tracking-tight">
+                                Saison 1
+                                {/*<span className="glitch">GLITCH</span> */}
+                            </h2>
                             <p className="text-gray-600 text-lg mt-2 max-w-md break-words">
-                                Progresse à travers des quiz de programmation, gagne de l’XP et débloque ton rang légendaire.
-                            </p>
+                                Affronte les quiz de programmation, accumule l’XP et décroche ton rang légendaire… Bienvenue dans la saison <span className={"glitch"}>GLITCH</span>.                            </p>
                             <div className="my-6 flex items-start space-x-6">
                                 {/* Novice */}
                                 <div className="flex flex-col items-center">
                                     <Image src="/ranked/rank/novice.png" alt="Rang NOVICE" width={70} height={60} />
-                                    <span className="mt-2 text-sm font-medium text-gray-700">NOVICE</span>
+                                    <span className="mt-2 text-sm font-medium text-gray-700 glitch">NOVICE</span>
                                 </div>
 
                                 {/* Hacker */}
                                 <div className="flex flex-col items-center">
                                     <Image src="/ranked/rank/hacker.png" alt="Rang HACKER" width={70} height={60} />
-                                    <span className="mt-2 text-sm font-medium text-gray-700">HACKER</span>
+                                    <span className="mt-2 text-sm font-medium text-gray-700 glitch">HACKER</span>
                                 </div>
 
                                 {/* Cyberknight */}
                                 <div className="flex flex-col items-center">
                                     <Image src="/ranked/rank/cyberknight.png" alt="Rang CYBERKNIGHT" width={70} height={60} />
-                                    <span className="mt-2 text-sm font-medium text-gray-700">CYBERKNIGHT</span>
+                                    <span className="mt-2 text-sm font-medium text-gray-700 glitch">CYBERKNIGHT</span>
                                 </div>
 
                                 {/* Overlord */}
                                 <div className="flex flex-col items-center">
                                     <Image src="/ranked/rank/overlord.png" alt="Rang OVERLORD" width={70} height={60} />
-                                    <span className="mt-2 text-sm font-medium text-gray-700">OVERLORD</span>
+                                    <span className="mt-2 text-sm font-medium text-gray-700 glitch">OVERLORD</span>
                                 </div>
                             </div>
 

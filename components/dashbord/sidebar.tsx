@@ -1,7 +1,7 @@
 "use client";
 
 import {Button} from "@/components/ui/button";
-import {Home, MessageCircle, Settings, Trophy, User} from "lucide-react";
+import {Home, MessageCircle, ScrollText, Settings, Trophy, User} from "lucide-react";
 import {useRouter, usePathname} from "next/navigation";
 
 export default function Sidebar(){
@@ -22,7 +22,7 @@ export default function Sidebar(){
     };
 
     return (
-        <div className="w-24 bg-white/80 backdrop-blur-sm border-r border-gray-200/50 flex flex-col items-center py-6 space-y-6">
+        <div className="fixed left-0 top-0 h-screen w-24 bg-white/80 backdrop-blur-sm border-r border-gray-200/50 flex flex-col items-center py-6 space-y-6 z-50">
             {/* Logo */}
             <div
                 className="w-10 h-10 bg-gradient-to-br from-[#6C5CE7] to-[#A29BFE] rounded-2xl flex items-center justify-center shadow-lg">
@@ -54,6 +54,14 @@ export default function Sidebar(){
                     onClick={() => handleNavigation('/trophy')}
                 >
                     <Trophy className="w-5 h-5"/>
+                </Button>
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className={getButtonClass('/quests')}
+                    onClick={() => handleNavigation('/quests')}
+                >
+                    <ScrollText className="w-5 h-5"/>
                 </Button>
                 <Button 
                     variant="ghost" 

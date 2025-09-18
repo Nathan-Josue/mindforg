@@ -1,3 +1,4 @@
+
 export default function AppStore(){
     return(
         <section
@@ -5,8 +6,7 @@ export default function AppStore(){
             data-analytics-section-engagement="name:hero"
         >
 
-
-        <div className="hero animate" data-component-list="OverviewHero">
+            <div className="hero animate" data-component-list="OverviewHero">
                 <div className="chiclets" aria-hidden="true">
                     <picture id="overview-chiclets-hero-01-1-1" className="overview-chiclets-hero-01-1">
                         <source srcSet="https://www.apple.com/fr/app-store/images/overview/chiclets/hero_01_1__ez5x903y69ci_large.jpg 1x ,/fr/app-store/images/overview/chiclets/hero_01_1__ez5x903y69ci_large_2x.jpg 2x " media="(min-width: 735px)" />
@@ -235,14 +235,14 @@ export default function AppStore(){
                 </div>
                 <picture id="overview-hero-1" className="overview-hero">
                     <source srcSet="https://www.apple.com/fr/app-store/images/overview/hero__fpyktigxzia2_small.jpg 1x ,/fr/app-store/images/overview/hero__fpyktigxzia2_small_2x.jpg 2x " media="(max-width: 734px)" />
-                        <img className="overview-hero-img" width="100%" height="100%" alt="" />
+                    <img className="overview-hero-img" width="100%" height="100%" alt="" />
                 </picture>
                 <div className="section-content">
                     <picture id="overview-icon-appstore-1" className="overview-icon-appstore">
                         <source srcSet="https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_small.png 1x ,/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_small_2x.png 2x " media="(max-width: 734px)" />
-                            <source srcSet="https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_medium.png 1x ,/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_medium_2x.png 2x " media="(max-width: 1068px)" />
-                                <source srcSet="https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large.png 1x ,/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png 2x " media="(min-width: 0px)" />
-                                    <img src="/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png" className="overview-icon-appstore-img" width="100%" height="100%" alt="" />
+                        <source srcSet="https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_medium.png 1x ,/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_medium_2x.png 2x " media="(max-width: 1068px)" />
+                        <source srcSet="https://www.apple.com/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large.png 1x ,/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png 2x " media="(min-width: 0px)" />
+                        <img src="/v/app-store/c/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png" className="overview-icon-appstore-img" width="100%" height="100%" alt="" />
                     </picture>
                     <h1 className="hero-eyebrow typography-eyebrow-super">App&nbsp;Store</h1>
                     <h2
@@ -252,11 +252,6 @@ export default function AppStore(){
                     >
                         L’endroit ultime pour débloquer des compétences et forger ton esprit.
                     </h2>
-                </div>
-            </div>
-            <div className="hero-intro">
-                <div className="section-content">
-                    <p className="hero-copy typography-callout">Depuis plus de dix ans, l’App&nbsp;Store s’est imposé comme une plate­forme sûre et&nbsp;fiable pour découvrir et télécharger des apps. Mais plus qu’une simple vitrine, c’est un lieu d’inno­vation, source d’expé­riences exception­nelles. Dans cette optique, nous veillons à faire respecter les normes les plus exigeantes en matière de confidentialité, de sécu­rité et de qualité de contenu. Tout est conçu pour vous permettre de dé­couvrir votre prochaine app préférée en toute confiance.</p>
                 </div>
             </div>
         </section>

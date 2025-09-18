@@ -114,7 +114,19 @@
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
 }
+/* styles/globals.css ou équivalent */
+/* Applique la suppression de scroll sur tout le document */
+.no-scrollbar,
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE et Edge Legacy */
+    scrollbar-width: none;     /* Firefox */
+}
 
+/* Chrome, Safari et Edge Chromium */
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 @layer base {
     * {
         @apply border-border outline-ring/50;

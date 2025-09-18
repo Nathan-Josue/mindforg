@@ -1497,9 +1497,9 @@ html.no-js .play-pause-button {
     overflow: hidden
 }
 
-.section-hero .hero {
-    background: #fff
-}
+/*.section-hero .hero {*/
+/*    background: #fff*/
+/*}*/
 
 @keyframes fade-in {
     0% {
