@@ -37,16 +37,30 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+    /* IDE-specific design tokens for professional dark theme */
+    --ide-background: oklch(0.08 0 0);
+    --ide-surface: oklch(0.12 0 0);
+    --ide-surface-hover: oklch(0.16 0 0);
+    --ide-border: oklch(0.2 0 0);
+    --ide-accent: oklch(0.45 0.15 200);
+    --ide-accent-hover: oklch(0.5 0.15 200);
+    --ide-success: oklch(0.6 0.15 140);
+    --ide-warning: oklch(0.7 0.15 60);
+    --ide-error: oklch(0.6 0.2 25);
+    --ide-text-primary: oklch(0.95 0 0);
+    --ide-text-secondary: oklch(0.7 0 0);
+    --ide-text-muted: oklch(0.5 0 0);
 }
 
 .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
+    --card: oklch(0.205 0 0);
     --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
+    --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
     --primary-foreground: oklch(0.205 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
@@ -54,11 +68,11 @@
     --muted-foreground: oklch(0.708 0 0);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
+    --destructive: oklch(0.704 0.191 22.216);
     --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: oklch(0.269 0 0);
-    --input: oklch(0.269 0 0);
-    --ring: oklch(0.439 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -70,8 +84,8 @@
     --sidebar-primary-foreground: oklch(0.985 0 0);
     --sidebar-accent: oklch(0.269 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(0.269 0 0);
-    --sidebar-ring: oklch(0.439 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
@@ -113,13 +127,30 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+
+    /* IDE color tokens */
+    --color-ide-background: var(--ide-background);
+    --color-ide-surface: var(--ide-surface);
+    --color-ide-surface-hover: var(--ide-surface-hover);
+    --color-ide-border: var(--ide-border);
+    --color-ide-accent: var(--ide-accent);
+    --color-ide-accent-hover: var(--ide-accent-hover);
+    --color-ide-success: var(--ide-success);
+    --color-ide-warning: var(--ide-warning);
+    --color-ide-error: var(--ide-error);
+    --color-ide-text-primary: var(--ide-text-primary);
+    --color-ide-text-secondary: var(--ide-text-secondary);
+    --color-ide-text-muted: var(--ide-text-muted);
 }
+
 /* styles/globals.css ou équivalent */
 /* Applique la suppression de scroll sur tout le document */
 .no-scrollbar,
 .no-scrollbar {
-    -ms-overflow-style: none;  /* IE et Edge Legacy */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;
+    /* IE et Edge Legacy */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 /* Chrome, Safari et Edge Chromium */
@@ -127,10 +158,12 @@
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
     }
+
     @font-face {
         font-family: "glitch";
         src: url("/fonts/glitch/glitch.otf") format("opentype");
@@ -142,8 +175,161 @@
     .glitch {
         font-family: "glitch", sans-serif;
     }
-    body {
 
+    body {
         @apply bg-background text-foreground;
     }
+
+    /* Custom IDE animations and utilities */
+    .ide-transition {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ide-glow {
+        box-shadow: 0 0 0 1px var(--ide-accent), 0 0 20px -8px var(--ide-accent);
+    }
+
+    .ide-surface-pattern {
+        background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+        background-size: 20px 20px;
+    }
+
+    .loader-glitch {
+        display: inline-block;
+        position: relative;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: glitch-shake 1.5s infinite;
+    }
+
+    /* Effets glitch superposés */
+    .loader-glitch::before,
+    .loader-glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        color: cyan;
+        clip: rect(0, 900px, 0, 0);
+        animation: glitch-anim 2s infinite linear alternate-reverse;
+    }
+
+    .loader-glitch::after {
+        color: red;
+        animation: glitch-anim2 2s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+        0% {
+            clip: rect(20px, 9999px, 25px, 0);
+            transform: translate(-2px, -2px);
+        }
+
+        20% {
+            clip: rect(50px, 9999px, 60px, 0);
+            transform: translate(2px, 2px);
+        }
+
+        40% {
+            clip: rect(10px, 9999px, 20px, 0);
+            transform: translate(-2px, 1px);
+        }
+
+        60% {
+            clip: rect(30px, 9999px, 35px, 0);
+            transform: translate(2px, -1px);
+        }
+
+        80% {
+            clip: rect(40px, 9999px, 45px, 0);
+            transform: translate(-1px, -2px);
+        }
+
+        100% {
+            clip: rect(15px, 9999px, 25px, 0);
+            transform: translate(1px, 1px);
+        }
+    }
+
+    @keyframes glitch-anim2 {
+        0% {
+            clip: rect(60px, 9999px, 65px, 0);
+            transform: translate(1px, 1px);
+        }
+
+        20% {
+            clip: rect(5px, 9999px, 15px, 0);
+            transform: translate(-2px, -1px);
+        }
+
+        40% {
+            clip: rect(40px, 9999px, 50px, 0);
+            transform: translate(1px, -2px);
+        }
+
+        60% {
+            clip: rect(25px, 9999px, 35px, 0);
+            transform: translate(-1px, 2px);
+        }
+
+        80% {
+            clip: rect(55px, 9999px, 60px, 0);
+            transform: translate(2px, -2px);
+        }
+
+        100% {
+            clip: rect(10px, 9999px, 20px, 0);
+            transform: translate(-1px, 1px);
+        }
+    }
+
+    @keyframes glitch-shake {
+
+        0%,
+        100% {
+            transform: none;
+        }
+
+        10% {
+            transform: skew(2deg);
+        }
+
+        20% {
+            transform: skew(-2deg);
+        }
+
+        30% {
+            transform: translate(2px, -1px);
+        }
+
+        40% {
+            transform: translate(-2px, 1px);
+        }
+
+        50% {
+            transform: skew(1deg);
+        }
+
+        60% {
+            transform: skew(-1deg);
+        }
+
+        70% {
+            transform: translate(1px, 1px);
+        }
+
+        80% {
+            transform: translate(-1px, -1px);
+        }
+
+        90% {
+            transform: skew(1deg);
+        }
+    }
+
 }

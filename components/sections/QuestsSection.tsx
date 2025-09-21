@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -19,6 +20,22 @@ import {
 } from "lucide-react"
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts"
 
+interface Quest {
+    id: number;
+    title: string;
+    description: string;
+    progress: number;
+    total: number;
+    completed: boolean;
+    difficulty: string;
+    xpReward: number;
+    icon: React.ComponentType<{ className?: string }>;
+    isEvent?: boolean;
+    timeLeft?: string;
+    background?: string;
+    category?: string;
+}
+
 const questStats = [
     { name: "Quotidiennes", completed: 12, total: 15, color: "#6C5CE7" },
     { name: "Hebdomadaires", completed: 3, total: 5, color: "#FDCB6E" },
@@ -33,7 +50,7 @@ const dailyQuests = [
         description: "Résoudre 3 erreurs de syntaxe en Python",
         progress: 2,
         total: 3,
-        reward: "50 XP + Badge Python",
+        xpReward: 50,
         timeLeft: "6h 23m",
         difficulty: "facile",
         category: "Python",
@@ -48,7 +65,7 @@ const dailyQuests = [
         description: "Exécuter 5 requêtes SQL SELECT",
         progress: 5,
         total: 5,
-        reward: "75 XP + Skin Database",
+        xpReward: 75,
         timeLeft: "6h 23m",
         difficulty: "moyen",
         category: "SQL",
@@ -62,7 +79,7 @@ const dailyQuests = [
         description: "Écrire 100 lignes de code en moins de 30 minutes",
         progress: 67,
         total: 100,
-        reward: "100 XP + Emote Vitesse",
+        xpReward: 100,
         timeLeft: "6h 23m",
         difficulty: "difficile",
         category: "Général",
@@ -79,7 +96,7 @@ const weeklyQuests = [
         description: "Créer 3 schémas de base de données complexes",
         progress: 1,
         total: 3,
-        reward: "300 XP + Titre 'Architecte'",
+        xpReward: 300,
         timeLeft: "4j 12h",
         difficulty: "épique",
         category: "Architecture",
@@ -94,7 +111,7 @@ const weeklyQuests = [
         description: "Compléter 20 défis de programmation",
         progress: 15,
         total: 20,
-        reward: "500 XP + Skin Légendaire",
+        xpReward: 500,
         timeLeft: "4j 12h",
         difficulty: "légendaire",
         category: "Défis",
@@ -110,7 +127,7 @@ const specialQuests = [
         description: "Recréer un mini-jeu Fortnite en JavaScript",
         progress: 0,
         total: 1,
-        reward: "1000 XP + Skin Fortnite Exclusif",
+        xpReward: 1000,
         timeLeft: "14j 5h",
         difficulty: "légendaire",
         category: "Événement",
@@ -154,7 +171,7 @@ const getDifficultyTextColor = (difficulty: string) => {
     }
 }
 
-const QuestCard = ({ quest, type }: { quest: any; type: string }) => {
+const QuestCard = ({ quest, type }: { quest: Quest; type: string }) => {
     const IconComponent = quest.icon;
     const progressPercent = Math.min((quest.progress / quest.total) * 100, 100);
 
@@ -241,7 +258,7 @@ const QuestCard = ({ quest, type }: { quest: any; type: string }) => {
                         <div className="flex items-center justify-between">
                             <div className="flex items-center text-green-600">
                                 <Gift className="w-4 h-4 mr-2" />
-                                <span className="text-sm font-medium">{quest.reward}</span>
+                                <span className="text-sm font-medium">{quest.xpReward} XP</span>
                             </div>
 
                             {!quest.completed && (
@@ -276,7 +293,7 @@ export default function QuestsSection() {
                                 <div>
                                     <h1 className="text-4xl font-black text-gray-900">Centre des Quêtes</h1>
                                     <p className="text-gray-600 text-lg mt-2">
-                                        Accomplissez des missions pour gagner de l'XP et des récompenses
+                                        Accomplissez des missions pour gagner de l&apos;XP et des récompenses
                                     </p>
                                 </div>
                                 <div className="text-right">

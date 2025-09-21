@@ -20,7 +20,7 @@ import HeaderSection from "@/components/dashbord/header-section";
 import CharacterCards from "@/components/dashbord/character-cards";
 import GameModes from "@/components/dashbord/game-modes";
 import AppStore from "@/components/app-store";
-import Language from "@/components/dashbord/language";
+import Language from "@/components/languages/language";
 
 const radarData = [
     {subject: "Eliminations", A: 120, fullMark: 150},
