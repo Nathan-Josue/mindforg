@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image"
 import { doyouknow } from "@/data/doyouknow.data";
 
-export default function Lording() {
+function LoadingContent() {
     const imagebg = [
         "/bg/uhd/bg_1.svg",
         "/bg/uhd/bg_2.svg",
@@ -123,5 +123,13 @@ export default function Lording() {
                 </div>
             </div>
         </div>
+    )
+}
+
+export default function Lording() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <LoadingContent />
+        </Suspense>
     )
 }

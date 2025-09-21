@@ -3,13 +3,13 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {ArrowLeft, ChevronLeft, Gift, Undo2} from "lucide-react"
+import {ChevronLeft, Gift} from "lucide-react"
 import ModulesList from "@/components/languages/modules-list";
 import {Language} from "@/types/language";
 import {ModuleLanguage} from "@/types/moduleLanguage";
 import {useRouter} from "next/navigation";
 
-function LeftSection(props: { src: string; alt: string; moduleLanguages: ModuleLanguage[]; language: Language; quests: any[] }) {
+function LeftSection(props: { src: string; alt: string; moduleLanguages: ModuleLanguage[]; language: Language; quests: Array<{title: string; description: string; xp: number; difficulty: string; icon?: string; currentStep: number; totalSteps: number}> }) {
     const router = useRouter()
 
     return (
@@ -116,7 +116,6 @@ function LeftSection(props: { src: string; alt: string; moduleLanguages: ModuleL
 }
 
 function RigthSection(props: {moduleLanguages: ModuleLanguage[] }) {
-    const router = useRouter()
 
     return (
         <div className="col-span-2 max-h-screen overflow-y-auto pr-2 no-scrollbar">

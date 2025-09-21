@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useRef, useState, useEffect, useCallback } from "react"
 import Editor, { type OnMount } from "@monaco-editor/react"
+import * as monaco from "monaco-editor"
 import { Button } from "@/components/ui/button"
 import {
     Play,
@@ -321,7 +322,7 @@ void printVector(const vector<int>& vec, const string& label) {
 ]
 
 export default function MiniIDE() {
-    const editorRef = useRef<any>(null)
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
     const iframeRef = useRef<HTMLIFrameElement>(null)
 
     const [theme, setTheme] = useState("vs-dark")
@@ -374,7 +375,7 @@ export default function MiniIDE() {
 
     // Enhanced console capture
     useEffect(() => {
-        const addConsoleMessage = (type: ConsoleMessage["type"], ...args: any[]) => {
+        const addConsoleMessage = (type: ConsoleMessage["type"], ...args: unknown[]) => {
             const message = args
                 .map((arg) => (typeof arg === "object" ? JSON.stringify(arg, null, 2) : String(arg)))
                 .join(" ")
@@ -504,10 +505,10 @@ export default function MiniIDE() {
                     // Create a safe execution context
                     const logs: string[] = []
                     const mockConsole = {
-                        log: (...args: any[]) => logs.push(args.join(" ")),
-                        error: (...args: any[]) => logs.push(`ERROR: ${args.join(" ")}`),
-                        warn: (...args: any[]) => logs.push(`WARN: ${args.join(" ")}`),
-                        info: (...args: any[]) => logs.push(`INFO: ${args.join(" ")}`),
+                        log: (...args: unknown[]) => logs.push(args.join(" ")),
+                        error: (...args: unknown[]) => logs.push(`ERROR: ${args.join(" ")}`),
+                        warn: (...args: unknown[]) => logs.push(`WARN: ${args.join(" ")}`),
+                        info: (...args: unknown[]) => logs.push(`INFO: ${args.join(" ")}`),
                     }
 
                     // Execute the code with mock console
@@ -579,7 +580,7 @@ export default function MiniIDE() {
 
     const formatCode = useCallback(() => {
         if (editorRef.current) {
-            editorRef.current.getAction("editor.action.formatDocument").run()
+            editorRef.current.getAction("editor.action.formatDocument")?.run()
         }
     }, [])
 

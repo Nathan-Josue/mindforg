@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
 import { Safari } from "@/components/ui/safari"
-import {CheckCircle, XCircle, RotateCcw, Code, Bug, Play, ChevronRight, ChevronLeft} from "lucide-react"
+import {CheckCircle, XCircle, RotateCcw, Code, Bug} from "lucide-react"
 import { ProgressRadial} from "@/components/radial-chart";
 import {questions} from "@/data/questions.data";
 import {Navigation} from "@/components/quiz/navigation";
@@ -120,7 +120,7 @@ export default function QCMPage() {
         if (firstQuestion.type === "code-correction") {
             setUserCode(firstQuestion.buggyCode)
         }
-    }, [questions])
+    }, [])
 
     const getScoreColor = (score: number) => {
         const percentage = (score / questions.length) * 100

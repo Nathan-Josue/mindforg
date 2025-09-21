@@ -2,9 +2,10 @@
 
 import { useRef, useState, useEffect } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
+import * as monaco from "monaco-editor";
 
 export default function MiniIDE() {
-    const editorRef = useRef<any>(null);
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
     const [theme, setTheme] = useState("jetbrains-dark");
     const [fontSize, setFontSize] = useState(14);
@@ -64,7 +65,7 @@ export default function MiniIDE() {
             {/* Barre d’outils */}
             <div className="flex gap-2 bg-gray-800 p-2 text-white rounded-t items-center">
                 <button onClick={() => alert("Run!") } className="px-3 py-1 bg-green-600 rounded">Run</button>
-                <button onClick={() => editorRef.current.getAction("editor.action.formatDocument").run()} className="px-3 py-1 bg-blue-600 rounded">Format</button>
+                <button onClick={() => editorRef.current?.getAction("editor.action.formatDocument")?.run()} className="px-3 py-1 bg-blue-600 rounded">Format</button>
                 <button onClick={() => setTheme(theme === "jetbrains-dark" ? "vs" : "jetbrains-dark")} className="px-3 py-1 bg-gray-600 rounded">Toggle Theme</button>
 
                 <span className="ml-auto flex items-center gap-2">
